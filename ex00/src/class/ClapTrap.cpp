@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/23 12:44:56 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:47:49 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,43 @@ int const			ClapTrap::getAD(void) const
 
 // Setters //
 
+void	setName(std::string const &name)
+{
+	if (DEBUG)
+		std::cout << "setName member function called\n";
+	this->_name = name;
+}
 
+void	setHP(int const &nb)
+{
+	if (DEBUG)
+		std::cout << "setHP member function called\n";
+	this->_hit_points = nb;
+}
+
+void	setEP(int const &nb)
+{
+	if (DEBUG)
+		std::cout << "setEP member function called\n";
+	this->_energy_points = nb;
+}
+
+void	setAD(int const &nb)
+{
+	if (DEBUG)
+		std::cout << "setAD member function called\n";
+	this->_attack_damage = nb;
+}
 
 // Member functions //
 
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->_energy_points == 0 || this->_hit_points == 0)
+	{
+		std::cout << "Clap trap does not have EP or HP :( you lost...\n";
 		return ;
+	}
 
 	this->_energy_points--;
 
@@ -92,8 +121,12 @@ void	ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hit_points == 0)
+	if (this->_energy_points == 0 || this->_hit_points == 0)
+	{
+		std::cout << "Clap trap does not have EP or HP :( you lost...\n";
 		return ;
+	}
+
 	this->_hit_points -= amount;
 
 	std::cout << "ClapTrap" << this->_name
@@ -105,7 +138,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energy_points == 0 || this->_hit_points == 0)
+	{
+		std::cout << "Clap trap does not have EP or HP :( you lost...\n";
 		return ;
+	}
 
 	this->_energy_points--;
 

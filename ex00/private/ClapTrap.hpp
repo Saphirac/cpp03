@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:10:39 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/23 12:40:21 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:39:45 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,12 @@ public :
 	int const			getHP(void) const;
 	int const			getEP(void) const;
 	int const			getAD(void) const;
-	
+
+	void	setName(std::string const &name);
+	void	setHP(int const &nb);
+	void	setEP(int const &nb);
+	void	setAD(int const &nb);
+
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
