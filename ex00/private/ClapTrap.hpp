@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:10:39 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/23 20:39:45 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 23:00:37 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define CLAP_TRAP_HPP
 
 # include <string>
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 class	ClapTrap {
 private :
@@ -30,14 +34,16 @@ public :
 	~ClapTrap();
 
 	std::string const	getName(void) const;
-	int const			getHP(void) const;
-	int const			getEP(void) const;
-	int const			getAD(void) const;
+	int			getHP(void) const;
+	int			getEP(void) const;
+	int			getAD(void) const;
 
 	void	setName(std::string const &name);
 	void	setHP(int const &nb);
 	void	setEP(int const &nb);
 	void	setAD(int const &nb);
+
+	void	print_all(void) const;
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);

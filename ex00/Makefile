@@ -6,7 +6,7 @@
 #    By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 23:20:21 by mcourtoi          #+#    #+#              #
-#    Updated: 2023/05/23 12:09:51 by mcourtoi         ###   ########.fr        #
+#    Updated: 2023/05/23 23:01:23 by mcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ PRV_DIR		=	private
 ######################################
 SRC			=						\
 				${addprefix class/,	\
+					ClapTrap.cpp	\
 				}					\
 				main.cpp
 

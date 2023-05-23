@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/23 20:47:49 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/23 23:04:14 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ _attack_damage(src._attack_damage)
 		std::cout << "Copy constructor called\n";
 }
 
-~ClapTrap::ClapTrap(void)
+ClapTrap::~ClapTrap(void)
 {
 	if (DEBUG)
 		std::cout << "Destructor called\n";
@@ -50,21 +50,21 @@ std::string const	ClapTrap::getName(void) const
 	return this->_name;
 }
 
-int const			ClapTrap::getHP(void) const
+int			ClapTrap::getHP(void) const
 {
 	if (DEBUG)
 		std::cout << "getHP member function called\n";
 	return this->_hit_points;
 }
 
-int const			ClapTrap::getEP(void) const
+int			ClapTrap::getEP(void) const
 {
 	if (DEBUG)
 		std::cout << "getEP member function called\n";
 	return this->_energy_points;
 }
 
-int const			ClapTrap::getAD(void) const
+int			ClapTrap::getAD(void) const
 {
 	if (DEBUG)
 		std::cout << "getAD member function called\n";
@@ -73,28 +73,28 @@ int const			ClapTrap::getAD(void) const
 
 // Setters //
 
-void	setName(std::string const &name)
+void	ClapTrap::setName(std::string const &name)
 {
 	if (DEBUG)
 		std::cout << "setName member function called\n";
 	this->_name = name;
 }
 
-void	setHP(int const &nb)
+void	ClapTrap::setHP(int const &nb)
 {
 	if (DEBUG)
 		std::cout << "setHP member function called\n";
 	this->_hit_points = nb;
 }
 
-void	setEP(int const &nb)
+void	ClapTrap::setEP(int const &nb)
 {
 	if (DEBUG)
 		std::cout << "setEP member function called\n";
 	this->_energy_points = nb;
 }
 
-void	setAD(int const &nb)
+void	ClapTrap::setAD(int const &nb)
 {
 	if (DEBUG)
 		std::cout << "setAD member function called\n";
@@ -105,50 +105,60 @@ void	setAD(int const &nb)
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (this->_energy_points == 0 || this->_hit_points == 0)
+	if (this->_energy_points <= 0 || this->_hit_points <= 0)
 	{
-		std::cout << "Clap trap does not have EP or HP :( you lost...\n";
+		std::cout << this->_name << " does not have EP or HP :( you lost...\n";
 		return ;
 	}
 
 	this->_energy_points--;
 
-	std::cout << "ClapTrap" << this->_name
-	<< "attacks" << target
-	<< ", causing" << this->_attack_damage
-	<<"points of damage!\n";
+	std::cout << "ClapTrap " << this->_name
+	<< " attacks " << target
+	<< ", causing " << this->_attack_damage
+	<<" points of damage!\n";
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_energy_points == 0 || this->_hit_points == 0)
+	if (this->_energy_points <= 0 || this->_hit_points <= 0)
 	{
-		std::cout << "Clap trap does not have EP or HP :( you lost...\n";
+		std::cout << this->_name << " does not have EP or HP :( you lost...\n";
 		return ;
 	}
 
 	this->_hit_points -= amount;
 
-	std::cout << "ClapTrap" << this->_name
-	<< "takes" << amount
-	<< "damage" << "and now have"
-	<< this->_hit_points << "hit points!\n";
+	std::cout << "ClapTrap " << this->_name
+	<< " takes " << amount
+	<< " damage and now have "
+	<< this->_hit_points << " hit points!\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_energy_points == 0 || this->_hit_points == 0)
+	if (this->_energy_points <= 0 || this->_hit_points <= 0)
 	{
-		std::cout << "Clap trap does not have EP or HP :( you lost...\n";
+		std::cout << this->_name << " does not have EP or HP :( you lost...\n";
 		return ;
 	}
 
 	this->_energy_points--;
 
-	std::cout << "ClapTrap" << this->_name
-	<< "repairs itself and gain" << amount
-	<< "hit points and now have"
+	std::cout << "ClapTrap " << this->_name
+	<< " repairs itself and gain " << amount
+	<< " hit points and now have "
 	<< this->_hit_points << '\n';
+}
+
+// All stats //
+
+void		ClapTrap::print_all(void) const
+{
+	std::cout << "Name : " << this->_name << '\n';
+	std::cout << "Hit points : " << this->_hit_points << '\n';
+	std::cout << "Energy points : " << this->_energy_points << '\n';
+	std::cout << "Attack damage : " << this->_attack_damage << '\n';
 }
 
 // Operator //
@@ -157,5 +167,12 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &src)
 {
 	if (DEBUG)
 		std::cout << "Copy assignment operator called\n";
-	return ClapTrap(src);
+	if (this != &src)
+	{
+		this->_name = src._name;
+		this->_hit_points = src._hit_points;
+		this->_energy_points = src._energy_points;
+		this->_attack_damage = src._attack_damage;
+	}
+	return *this;
 }
