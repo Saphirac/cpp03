@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:13:58 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:28:04 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:58:54 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private :
 
 public :
 
-	DiamondTrap(std::string name);
+	DiamondTrap(std::string const name);
 	DiamondTrap(DiamondTrap const &src);
 	~DiamondTrap(void);
 

@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:55:46 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:58:46 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // Constructor and Destructor //
 
-DiamondTrap::DiamondTrap(std::string name) :
+DiamondTrap::DiamondTrap(std::string const name) :
 ClapTrap(name + std::string("_clap_name"), 100, 100, 30),
 ScavTrap(),
 FragTrap(),
