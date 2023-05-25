@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:33:10 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:30:50 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap(name, 100, 100, 30)
 }
 
 FragTrap::FragTrap(FragTrap const &src) :
-ClapTrap(src)
+ClapTrap(src._name, src._hit_points, src._energy_points, src._attack_damage)
 {
 	if (DEBUG)
 		std::cout << "FragTrap copy constructor called\n";

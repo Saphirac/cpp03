@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:13:58 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:38:14 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:47:25 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ public :
 
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const &src);
+	ScavTrap(void);
 	~ScavTrap(void);
 
 	void	guardGate(void);
+	void	attack(std::string target);
 
 	ScavTrap	&operator=(ScavTrap const &src);
 };

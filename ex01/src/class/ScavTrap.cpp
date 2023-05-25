@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:53:29 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:48:15 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,18 @@ _guard_mode(false)
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) :
-ClapTrap(src._name, src._hit_points, src._energy_points, src._attack_damage),
+ClapTrap(src),
 _guard_mode(src._guard_mode)
 {
 	if (DEBUG)
 		std::cout << "ScavTrap copy constructor called\n";
+}
+
+ScavTrap::ScavTrap(void) :
+ClapTrap("Default", 100, 50, 20)
+{
+	if (DEBUG)
+		std::cout << "FragTrap constructor called\n";
 }
 
 ScavTrap::~ScavTrap(void)
@@ -37,12 +44,12 @@ ScavTrap::~ScavTrap(void)
 		std::cout << "ScavTrap destructor called\n";
 }
 
-// GuardGate //
+// GuardGate and attack //
 
 void	ScavTrap::guardGate(void)
 {
 	if (DEBUG)
-		std::cout << "guardGate member function called\n";
+		std::cout << "guardGate() member function called\n";
 
 	if (this->_guard_mode == false)
 	{
@@ -52,6 +59,24 @@ void	ScavTrap::guardGate(void)
 	else
 		std::cout << this->_name << " is already in Guard Keeper mode.\n";
 	
+}
+
+void	ScavTrap::attack(std::string target)
+{
+	if (DEBUG)
+		std::cout << "ScavTrap attack() member function called\n";
+	
+	if (this->_energy_points <= 0 || this->_hit_points <= 0)
+	{
+		std::cout << this->_name << " does not have EP or HP :( you lost...\n";
+		return ;
+	}
+	this->_energy_points--;
+
+	std::cout << "ScavTrap " << this->_name
+	<< " attacks " << target
+	<< ", causing " << this->_attack_damage
+	<<" points of damage!\n";
 }
 
 // Operator //

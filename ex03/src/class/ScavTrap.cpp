@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:49:17 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:51:09 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ _guard_mode(false)
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) :
-ClapTrap(src),
+ClapTrap(src._name, src._hit_points, src._energy_points, src._attack_damage),
 _guard_mode(src._guard_mode)
 {
 	if (DEBUG)

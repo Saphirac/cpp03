@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 10:50:58 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:01:50 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:33:53 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ public :
 
 	FragTrap(std::string name);
 	FragTrap(FragTrap const &src);
+	FragTrap(void);
 	~FragTrap(void);
 
 	void	highFivesGuys(void);
