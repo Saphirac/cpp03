@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:51:09 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:06:25 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ScavTrap::guardGate(void)
 	
 }
 
-void	ScavTrap::attack(std::string target)
+void	ScavTrap::attack(std::string const &target)
 {
 	if (DEBUG)
 		std::cout << "ScavTrap attack() member function called\n";

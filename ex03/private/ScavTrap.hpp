@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:13:58 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 11:50:34 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:05:52 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ public :
 	ScavTrap(void);
 	~ScavTrap(void);
 
-	void	guardGate(void);
-	void	attack(std::string target);
+	void			guardGate(void);
+	virtual void	attack(std::string const &target);
 
 	ScavTrap	&operator=(ScavTrap const &src);
 };

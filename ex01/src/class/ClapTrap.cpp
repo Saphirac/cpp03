@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:21:57 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:25:21 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:04:14 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	ClapTrap::setAD(int const &nb)
 
 // Member functions //
 
-void	ClapTrap::attack(const std::string &target)
+void	ClapTrap::attack(std::string const &target)
 {
 	if (this->_energy_points <= 0 || this->_hit_points <= 0)
 	{

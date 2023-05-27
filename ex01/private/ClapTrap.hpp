@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:10:39 by mcourtoi          #+#    #+#             */
-/*   Updated: 2023/05/25 10:23:04 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:03:15 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ public :
 
 	void	print_all(void) const;
 
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	virtual void	attack(std::string const &target);
+	void			takeDamage(unsigned int amount);
+	void			beRepaired(unsigned int amount);
 	
 	ClapTrap	&operator=(ClapTrap const &src);
 };
